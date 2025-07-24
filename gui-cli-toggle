@@ -1,10 +1,8 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-# Get current default target
 current_target=$(systemctl get-default)
 echo "Current default target: $current_target"
 
-# Function to find an installed display manager
 find_installed_display_manager() {
     local dms=("gdm" "sddm" "lightdm" "lxdm" "xdm" "ly")
     for dm in "${dms[@]}"; do
@@ -16,7 +14,6 @@ find_installed_display_manager() {
     return 1
 }
 
-# Ask for confirmation
 confirm_action() {
     read -r -p "$1 [y/N]: " response
     case "$response" in
